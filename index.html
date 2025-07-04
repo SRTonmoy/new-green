@@ -1,32 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | GreenHub</title>
-    <link rel="stylesheet" href="static/css/login.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard | GreenHub</title>
+  <link rel="stylesheet" href="static/css/dashboard.css" />
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-box">
-            <!-- GreenHub Logo -->
-            <img src="static/images/logo.png" alt="GreenHub Logo" class="logo" />
+  <header class="dashboard-header">
+    <h1>Welcome to GreenHub Dashboard</h1>
 
-            <h2>Welcome to GreenHub</h2>
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle">🌙 Dark Mode</button>
 
-            <!-- Login Form -->
-            <form onsubmit="return handleLogin(event)">
-                <input type="text" id="username" placeholder="Username" required />
-                <input type="password" id="password" placeholder="Password" required />
-                <button type="submit">Login</button>
-            </form>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="fruits.html">Fruits</a></li>
+        <li><a href="vegetables.html">Vegetables</a></li>
+        <li><a href="nutrition.html">Nutrition Info</a></li>
+        <li><a href="pricing-trends.html">Pricing Trends</a></li>
+      </ul>
+    </nav>
 
-            <div class="messages" id="messageBox"></div>
+    <!-- Search Bar -->
+    <form id="searchForm" class="search-form">
+      <input type="text" name="query" id="searchQuery" placeholder="Search fruits, vegetables, or trends..." required />
+      <button type="submit">Search</button>
+    </form>
+  </header>
 
-            <a href="#" class="forgot-password">Forgot Password?</a>
-        </div>
-    </div>
+  <div class="dashboard-container">
+    <section id="fruits" class="dashboard-section">
+      <h3>Fruits</h3>
+      <p>Explore fresh fruits, their prices, and nutritional values.</p>
+      <a href="fruits.html"><img src="static/images/fruits.jpg" alt="Fruits" /></a>
+    </section>
 
-    <script src="static/js/main.js"></script>
+    <section id="vegetables" class="dashboard-section">
+      <h3>Vegetables</h3>
+      <p>Find the best pricing and health benefits of vegetables.</p>
+      <a href="vegetables.html"><img src="static/images/vegetables.jpg" alt="Vegetables" /></a>
+    </section>
+
+    <section id="nutrition" class="dashboard-section">
+      <h3>Nutrition Info</h3>
+      <p>Get insights into the nutritional values of various fruits and vegetables.</p>
+      <a href="nutrition.html"><img src="static/images/nutrition.jpeg" alt="Nutrition Info" /></a>
+    </section>
+
+    <section id="pricing-trends" class="dashboard-section">
+      <h3>Pricing Trends</h3>
+      <p>Visualize pricing trends across different regions and seasons.</p>
+      <a href="pricing-trends.html"><img src="static/images/pricing-trends.jpeg" alt="Pricing Trends" /></a>
+    </section>
+  </div>
+
+  <a href="index.html" class="logout-link">Logout</a>
+
+  <footer class="dashboard-footer">
+    <p>&copy; 2025 GreenHub. All rights reserved.</p>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
 </body>
 </html>
