@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search Results | GreenHub</title>
+  <link rel="stylesheet" href="static/css/dashboard.css" />
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1>Search Results</h1>
+    <a href="dashboard.html" class="logout-link">Back to Dashboard</a>
+  </header>
+
+  <div class="search-results-container">
+    <h2>Results:</h2>
+    <ul id="results-list">
+      <!-- Search results will be displayed here dynamically -->
+    </ul>
+  </div>
+
+  <footer class="dashboard-footer">
+    <p>&copy; 2025 GreenHub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // This script retrieves the search query from URL parameters
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function displayResults() {
+      const query = getQueryParam('query') || '';
+      const resultsList = document.getElementById('results-list');
+      
+      // Example static search data (replace with your real data or API)
+      const searchResults = {
+        fruits: ['Apple', 'Banana', 'Mango', 'Pineapple'],
+        vegetables: ['Carrot', 'Broccoli', 'Spinach', 'Potato'],
+        nutrition: ['Vitamin C', 'Vitamin A', 'Iron', 'Calcium'],
+        pricing_trends: ['Trend 1', 'Trend 2', 'Trend 3', 'Trend 4'],
+      };
+
+      // Filter results across all categories
+      let results = [];
+      Object.values(searchResults).forEach(category => {
+        category.forEach(item => {
+          if(item.toLowerCase().includes(query.toLowerCase())) {
+            results.push(item);
+          }
+        });
+      });
+
+      if(results.length === 0) {
+        resultsList.innerHTML = `<li>No results found for "${query}".</li>`;
+      } else {
+        resultsList.innerHTML = results.map(item => `<li>${item}</li>`).join('');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', displayResults);
+  </script>
+  <script src="/static/js/main.js"></script>
+
+</body>
+</html>
